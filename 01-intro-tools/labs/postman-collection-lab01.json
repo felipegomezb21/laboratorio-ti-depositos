@@ -1,0 +1,73 @@
+{
+  "info": {
+    "name": "Lab Intro - TI Depósito \u2014 API REST",
+    "_postman_id": "e9c3d5a4-0c9a-4d3c-9b38-111111111111",
+    "description": "Colecci\u00f3n b\u00e1sica para probar la API REST del laboratorio.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/health",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "health"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Item",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"primer-item\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/items",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "items"
+          ]
+        }
+      }
+    },
+    {
+      "name": "List Items",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/items",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "items"
+          ]
+        }
+      }
+    }
+  ]
+}

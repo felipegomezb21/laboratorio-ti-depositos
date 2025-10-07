@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="223b9ce7-297d-4467-a2be-f04cb765815a" activeEnvironment="Default" name="Lab01-2" resourceRoot="" soapui-version="5.9.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="cbdf3537-60cb-447d-a552-a4639a7903f1" wsaVersion="NONE" name="Application" type="wsdl" bindingName="{urn:lab.soap}Application" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/soap?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/soap?wsdl"><con:part><con:url>http://localhost:8080/soap?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="urn:lab.soap" name="Application" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:plink="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:wsdlsoap11="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdlsoap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap11enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap11env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap12env="http://www.w3.org/2003/05/soap-envelope" xmlns:soap12enc="http://www.w3.org/2003/05/soap-encoding" xmlns:wsa="http://schemas.xmlsoap.org/ws/2003/03/addressing" xmlns:xop="http://www.w3.org/2004/08/xop/include" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="urn:lab.soap">
+  <wsdl:types>
+    <xs:schema targetNamespace="urn:lab.soap" elementFormDefault="qualified">
+      <xs:complexType name="SoapItem">
+        <xs:sequence>
+          <xs:element name="id" type="xs:integer" minOccurs="0" nillable="true"/>
+          <xs:element name="name" type="xs:string" minOccurs="0" nillable="true"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="list_items"/>
+      <xs:complexType name="SoapItemArray">
+        <xs:sequence>
+          <xs:element name="SoapItem" type="tns:SoapItem" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="create_item">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0" nillable="true"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="echo">
+        <xs:sequence>
+          <xs:element name="s" type="xs:string" minOccurs="0" nillable="true"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="echoResponse">
+        <xs:sequence>
+          <xs:element name="echoResult" type="xs:string" minOccurs="0" nillable="true"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="create_itemResponse">
+        <xs:sequence>
+          <xs:element name="create_itemResult" type="tns:SoapItem" minOccurs="0" nillable="true"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="list_itemsResponse">
+        <xs:sequence>
+          <xs:element name="list_itemsResult" type="tns:SoapItemArray" minOccurs="0" nillable="true"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SoapItem" type="tns:SoapItem"/>
+      <xs:element name="list_items" type="tns:list_items"/>
+      <xs:element name="SoapItemArray" type="tns:SoapItemArray"/>
+      <xs:element name="create_item" type="tns:create_item"/>
+      <xs:element name="echo" type="tns:echo"/>
+      <xs:element name="echoResponse" type="tns:echoResponse"/>
+      <xs:element name="create_itemResponse" type="tns:create_itemResponse"/>
+      <xs:element name="list_itemsResponse" type="tns:list_itemsResponse"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="echo">
+    <wsdl:part name="echo" element="tns:echo"/>
+  </wsdl:message>
+  <wsdl:message name="echoResponse">
+    <wsdl:part name="echoResponse" element="tns:echoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="create_item">
+    <wsdl:part name="create_item" element="tns:create_item"/>
+  </wsdl:message>
+  <wsdl:message name="create_itemResponse">
+    <wsdl:part name="create_itemResponse" element="tns:create_itemResponse"/>
+  </wsdl:message>
+  <wsdl:message name="list_items">
+    <wsdl:part name="list_items" element="tns:list_items"/>
+  </wsdl:message>
+  <wsdl:message name="list_itemsResponse">
+    <wsdl:part name="list_itemsResponse" element="tns:list_itemsResponse"/>
+  </wsdl:message>
+  <wsdl:service name="EchoService">
+    <wsdl:port name="Application" binding="tns:Application">
+      <wsdlsoap11:address location="http://localhost:8080/soap/"/>
+    </wsdl:port>
+  </wsdl:service>
+  <wsdl:portType name="Application">
+    <wsdl:operation name="echo" parameterOrder="echo">
+      <wsdl:input name="echo" message="tns:echo"/>
+      <wsdl:output name="echoResponse" message="tns:echoResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="create_item" parameterOrder="create_item">
+      <wsdl:input name="create_item" message="tns:create_item"/>
+      <wsdl:output name="create_itemResponse" message="tns:create_itemResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="list_items" parameterOrder="list_items">
+      <wsdl:input name="list_items" message="tns:list_items"/>
+      <wsdl:output name="list_itemsResponse" message="tns:list_itemsResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Application" type="tns:Application">
+    <wsdlsoap11:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="echo">
+      <wsdlsoap11:operation soapAction="echo" style="document"/>
+      <wsdl:input name="echo">
+        <wsdlsoap11:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="echoResponse">
+        <wsdlsoap11:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="create_item">
+      <wsdlsoap11:operation soapAction="create_item" style="document"/>
+      <wsdl:input name="create_item">
+        <wsdlsoap11:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="create_itemResponse">
+        <wsdlsoap11:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="list_items">
+      <wsdlsoap11:operation soapAction="list_items" style="document"/>
+      <wsdl:input name="list_items">
+        <wsdlsoap11:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="list_itemsResponse">
+        <wsdlsoap11:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/soap/</con:endpoint></con:endpoints><con:operation id="d1a0eedd-0ef1-4079-872f-f806168b3cf5" isOneWay="false" action="create_item" name="create_item" bindingOperationName="create_item" type="Request-Response" outputName="create_itemResponse" inputName="create_item" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="300c26d4-2374-48b9-8a78-0b04573cded0" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/soap/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:lab.soap">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:create_item>
+         <!--Optional:-->
+         <urn:name>soap item</urn:name>
+      </urn:create_item>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="create_item"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="9aabc5ff-0e0e-472e-9441-30c9fdf6b726" isOneWay="false" action="echo" name="echo" bindingOperationName="echo" type="Request-Response" outputName="echoResponse" inputName="echo" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6b4edc06-7240-44d6-9e3f-512e840e3499" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/soap/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:lab.soap">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:echo>
+         <!--Optional:-->
+         <urn:s>?</urn:s>
+      </urn:echo>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="echo"/></con:call></con:operation><con:operation id="0b34cafd-0c46-4c0d-b6c5-4e9bc84e64a3" isOneWay="false" action="list_items" name="list_items" bindingOperationName="list_items" type="Request-Response" outputName="list_itemsResponse" inputName="list_items" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3b064d94-30d7-4267-8a3d-c7ba92b627f3" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/soap/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:lab.soap">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:list_items/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="list_items"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

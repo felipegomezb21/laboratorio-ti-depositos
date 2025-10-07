@@ -1,0 +1,15 @@
+services:
+  nginx:
+    build: ./nginx
+    ports:
+      - "8443:8443"
+    volumes:
+      - ../certs:/certs:ro
+  haproxy:
+    build: ./haproxy
+    ports:
+      - "9443:9443"
+    volumes:
+      - ../certs:/certs:ro
+    depends_on:
+      - nginx
