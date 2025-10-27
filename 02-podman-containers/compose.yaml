@@ -1,0 +1,14 @@
+services:
+  notes-api:
+    build:
+      context: ./services/app
+      dockerfile: Containerfile
+    environment:
+      - NOTES_PATH=/app/data/notes.json
+    ports:
+      - "8085:8080"
+    volumes:
+      - notes-data:/app/data
+
+volumes:
+  notes-data:
